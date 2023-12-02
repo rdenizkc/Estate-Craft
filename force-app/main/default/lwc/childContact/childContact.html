@@ -1,0 +1,86 @@
+<template>
+    
+    <template if:true={relatedContacts.data}> 
+        <template for:each={relatedContacts.data} for:item="con"> 
+            <div key={con.Id}>
+                
+            
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                    <thead>
+                            <tr class="slds-line-height_reset">
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Contact Name">Contact Name</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Email">Email</div>
+                            </th>
+                            
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Mailing Street">Mailing Street</div>
+                            </th>
+                            
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Mailing City">Mailing City</div>
+                            </th>
+                            
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Mailing State">Mailing State</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Mailing Country">Mailing Country</div>
+                            </th>
+                            
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Mailing Postal Code">Mailing Postal Code</div>
+                            </th>
+                            
+                            
+                        </tr>
+                    </thead>
+                    <!-- Head is ending, data part is starting 
+                    the "th" and "td" tags are matching through title and data-label-->
+                   <tbody>
+                        <tr class="slds-hint-parent">                       
+                        
+                        <td data-label="Contact Name">
+                            <div class="slds-truncate" title="Contact Name">                                                                        
+<!-- =>>>>>> -->                            <a name={con.Id} onclick={navigateToViewContactPage}> {con.Name} </a> <!-- this anchor tag will be used to make name reactive. when click, directs you to record page -->
+                            </div>                            
+                        </td>
+                        <td data-label="Email">
+                            <div class="slds-truncate" title="Email"> {con.Email} </div>
+                        </td>
+                        
+                        <td data-label="Billing Street">
+                            <div class="slds-truncate" title="Mailing Street"> {con.MailingStreet} </div>
+                        </td>
+                        
+                        <td data-label="Billing City">
+                            <div class="slds-truncate" title="Mailing City">{con.MailingCity} </div>
+                        </td>
+                        
+                        <td data-label="Billing State">
+                            <div class="slds-truncate" title="Mailing State">{con.MailingState}</div>
+                        </td>
+                        
+                        <td data-label="Billing State">
+                            <div class="slds-truncate" title="Mailing Country">..... </div>
+                        </td>
+                        
+                
+                        <td data-label="Billing Postal Code">
+                            <div class="slds-truncate" title="Mailing Postal Code"> {con.MailingPostalCode} </div>
+                        </td>
+                     </tr>
+                       
+                    </tbody>
+                </table>
+            
+            
+            </div>
+        </template>
+    </template>
+    <template if:true={relatedContacts.error}>
+               <div> Error detected: {relatedContacts.error} </div> 
+    </template>
+</template>
